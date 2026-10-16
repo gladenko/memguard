@@ -10,10 +10,19 @@ Monitor della memoria per **KDE Plasma** e **GNOME**, scritto in Rust. Non richi
 
 ## Installazione
 
+Da sorgente:
+
     cargo build --release
     install -Dm755 target/release/memguard ~/.local/bin/memguard
     install -Dm644 contrib/memguard.service ~/.config/systemd/user/memguard.service
     systemctl --user enable --now memguard
+
+Da pacchetto (release su GitHub: `.deb` per Debian/Ubuntu, `.rpm` per Fedora/openSUSE):
+
+    sudo dpkg -i memguard_0.1.0-1_amd64.deb     # Debian/Ubuntu
+    sudo rpm -i memguard-0.1.0-1.x86_64.rpm   # Fedora/openSUSE
+
+    systemctl --user enable --now memguard    # l'unità è in /usr/lib/systemd/user/
 
 ## Uso
 

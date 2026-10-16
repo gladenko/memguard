@@ -1,0 +1,11 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: memguard
+Upstream-Contact: Gianluca Rettore <gladenko@gladenko.com>
+Source: https://github.com/gladenko/memguard
+
+Files: *
+Copyright: 2026 Gianluca Rettore
+License: GPL-3.0-or-later
+ Il testo completo della licenza è nel file LICENSE distribuito con
+ il pacchetto, oppure in /usr/share/common-licenses/GPL-3 sui sistemi
+ Debian.

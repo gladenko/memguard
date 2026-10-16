@@ -15,3 +15,32 @@ libc = "0.2"
 opt-level = "s"
 lto = true
 strip = true
+
+[package.metadata.deb]
+maintainer = "Gianluca Rettore <gladenko@gladenko.com>"
+copyright = "2026, Gianluca Rettore"
+section = "utils"
+priority = "optional"
+depends = "libnotify-bin"
+extended-description = """Monitor della memoria per KDE Plasma e GNOME.
+ Avvisa con una notifica quando la RAM sta per saturarsi e la libera
+ automaticamente quando il rallentamento è imminente. Mostra un'icona
+ verde/gialla/rossa nella barra di sistema."""
+assets = [
+    ["target/release/memguard", "usr/bin/", "755"],
+    ["contrib/packaging/memguard.service", "usr/lib/systemd/user/", "644"],
+    ["README.md", "usr/share/doc/memguard/", "644"],
+    ["LICENSE", "usr/share/doc/memguard/", "644"],
+    ["contrib/packaging/copyright", "usr/share/doc/memguard/copyright", "644"],
+    ["contrib/setup-swap.sh", "usr/share/doc/memguard/", "755"],
+]
+
+[package.metadata.generate-rpm]
+assets = [
+    { source = "target/release/memguard", dest = "/usr/bin/memguard", mode = "755" },
+    { source = "contrib/packaging/memguard.service", dest = "/usr/lib/systemd/user/memguard.service", mode = "644" },
+    { source = "README.md", dest = "/usr/share/doc/memguard/README.md", mode = "644" },
+    { source = "LICENSE", dest = "/usr/share/licenses/memguard/LICENSE", mode = "644" },
+    { source = "contrib/setup-swap.sh", dest = "/usr/share/doc/memguard/setup-swap.sh", mode = "755" },
+]
+requires = { libnotify = "*" }
