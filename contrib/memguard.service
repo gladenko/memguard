@@ -1,0 +1,13 @@
+[Unit]
+Description=memguard - monitor memoria per KDE/GNOME
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/bin/memguard
+Restart=on-failure
+RestartSec=5
+Nice=10
+
+[Install]
+WantedBy=graphical-session.target

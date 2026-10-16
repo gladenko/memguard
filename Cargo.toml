@@ -1,0 +1,17 @@
+[package]
+name = "memguard"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-or-later"
+authors = ["Gianluca Rettore <gladenko@gladenko.com>"]
+repository = "https://github.com/gladenko/memguard"
+description = "Monitor della memoria per KDE e GNOME: avvisa e libera RAM prima dei rallentamenti"
+
+[dependencies]
+ksni = { version = "0.3.6", default-features = false, features = ["blocking", "async-io"] }
+libc = "0.2"
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true
